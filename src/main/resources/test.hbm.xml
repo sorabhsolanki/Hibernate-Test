@@ -9,6 +9,18 @@
 		<generator class="native"></generator>
 	</id>
 	<property name="messageText" type="string" column="MESSAGE_TEXT" not-null="true"></property>
+	<set name="events" table="MESSAGE_EVENT">
+		<key column="id"></key>
+		<many-to-many column="eventId" class="com.check.hib.dto.Event"></many-to-many>
+	</set>
+	
+</class>
+
+<class name="com.check.hib.dto.Event" table="EVENT">
+	<id name="eventId" type="long" column="EVENT_ID">
+		<generator class="native"></generator>
+	</id>
+	<property name="eventDescription" type="string" column="EVENT_DESCRIPTION" not-null="true"></property>
 </class>
 
 </hibernate-mapping>
